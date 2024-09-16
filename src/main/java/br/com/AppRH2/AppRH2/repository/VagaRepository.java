@@ -8,6 +8,6 @@ import br.com.AppRH2.AppRH2.models.Vaga;
 
 public interface VagaRepository extends CrudRepository <Vaga,String>{
 	Vaga findByCodigo(long codigo);
-	List<Vaga> finfByNome(String nome);
+	List<Vaga> findByNome(String nome);
 
 }
