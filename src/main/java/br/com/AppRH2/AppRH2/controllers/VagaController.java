@@ -18,7 +18,10 @@ import br.com.AppRH2.AppRH2.repository.VagaRepository;
 @Controller
 public class VagaController {
 
+	@Autowired
 	private VagaRepository vr;
+	
+	@Autowired
 	private CandidatoRepository cr;
 
 	// CADASTRA VAGA
@@ -36,7 +39,7 @@ public class VagaController {
 		}
 
 		vr.save(vaga);
-		attributes.addFlashAttribute("Mensagem", "Vaga cadastrada com sucesso!!");
+		attributes.addFlashAttribute("mensagem", "Vaga cadastrada com sucesso!!");
 		return "redirect:/cadastrarVaga";
 	}
 
@@ -44,7 +47,7 @@ public class VagaController {
 
 	@RequestMapping("/vagas")
 	public ModelAndView listaVagas() {
-		ModelAndView mv = new ModelAndView("vaga/listaaga");
+		ModelAndView mv = new ModelAndView("vaga/listaVaga");
 		Iterable<Vaga> vagas = vr.findAll();
 		mv.addObject("vagas", vagas);
 		return mv;
