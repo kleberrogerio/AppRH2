@@ -73,8 +73,8 @@ public class VagaController {
 		return "redirect:/vagas";
 	}
 
-	//
-
+	//ADICIONAR CANDIDATO
+	@RequestMapping(value="/{codigo}",method=RequestMethod.POST)
 	public String detalhesVagaPost(@PathVariable("codigo") long codigo, @Valid Candidato candidato,
 			BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
